@@ -9,7 +9,7 @@ int main(void)
 {
 	int i;
 	int j;
-	char ft = 'A';
+	char ft = 'a';
 
 	for (i = 0; i < 10; i++)
 		putchar(i + 48);
