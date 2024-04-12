@@ -7,6 +7,17 @@
  */
 int main(void)
 {
+	print_alphabet();
+	return (0);
+}
+
+/**
+ * print_alphabet - writes all lower case chars
+ *
+ * Return: void
+ */
+void print_alphabet(void)
+{
 	int cha = 97;
 	int i;
 
@@ -16,5 +27,4 @@ int main(void)
 		cha++;
 	}
 	_putchar('\n');
-	return (0);
 }
