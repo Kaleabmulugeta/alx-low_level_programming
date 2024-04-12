@@ -11,11 +11,13 @@
  *
  * _islower - checks if a char is lowercase
  * _isalpha - checks if a char is a letter
+ * print_sign - checks the sign of a num
  */
 
 int _putchar(char c);
 void print_alphabet_x10(void);
 int _islower(int c);
 int _isalpha(int c);
+int print_sign(int n);
 
 #endif
