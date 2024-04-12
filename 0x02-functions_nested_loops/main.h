@@ -9,9 +9,11 @@
  *
  * print_alphabet - print all letters.
  *
+ * _islower - checks if a char is lowercase
  */
 
 int _putchar(char c);
 void print_alphabet_x10(void);
+int _islower(int c);
 
 #endif
