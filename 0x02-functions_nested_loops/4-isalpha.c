@@ -1,5 +1,5 @@
 /**
- * _islower - check the casse of thechar.
+ * _isalpha - check the casse of thechar.
  *@c: character to be checked
  *
  * Return: 1 or 0.
