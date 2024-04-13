@@ -13,6 +13,7 @@
  * _isalpha - checks if a char is a letter
  * print_sign - checks the sign of a num
  * _abs - absolute val
+ * times_table - prints the time table 0 - 9
  */
 
 int _putchar(char c);
@@ -23,5 +24,6 @@ int print_sign(int n);
 int _abs(int n);
 int print_last_digit(int n);
 void jack_bauer(void);
+void times_table(void);
 
 #endif
