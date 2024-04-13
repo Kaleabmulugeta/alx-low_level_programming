@@ -45,7 +45,8 @@ void fibonacci(void)
 		fib2_half1 = half1;
 		fib2_half2 = half2;
 	}
-	printf("\n");}
+	printf("\n");
+}
 
 /**
  * main - check the code.
