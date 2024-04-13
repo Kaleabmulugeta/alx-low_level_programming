@@ -10,6 +10,8 @@
  */
 void print_int(int x)
 {
+	int ld;
+	int s;
 	if (x < 0)
 	{
 		_putchar('-');
@@ -29,8 +31,11 @@ void print_int(int x)
 	}
 	else if (x < 1000)
 	{
-		_putchar((int) (x / 100) + 48);
-		print_int(x - ((int) (x / 100)) * 100);
+		ld = (int) (x / 100);
+		s = (int) (x / 10) - (ld * 10);
+		_putchar(ld + 48);
+		_putchar(s + 48);
+		_putchar((x % 10) + 48);
 		return;
 	}
 }
@@ -54,8 +59,11 @@ void print_to_98(int n)
 		while (n >= 98)
 		{
 			print_int(n);
-			_putchar(',');
-			_putchar(' ');
+			if (n != 98)
+			{
+				_putchar(',');
+				_putchar(' ');
+			}
 			n--;
 		}
 	}
