@@ -1,10 +1,8 @@
 #include "main.h"
+
 /**
- * print_to_98 - print form n to 98
- *@n: integer
- *
- * print_int - prints any integer
- * @x: integer
+ * print_int - print an int
+ * @x: int
  *
  * Return: void
  */
@@ -12,6 +10,7 @@ void print_int(int x)
 {
 	int ld;
 	int s;
+
 	if (x < 0)
 	{
 		_putchar('-');
@@ -39,6 +38,11 @@ void print_int(int x)
 		return;
 	}
 }
+/**
+ * print_to_98 - check the code
+ * @n: int
+ *
+ */
 void print_to_98(int n)
 {
 	if (n <= 98)
