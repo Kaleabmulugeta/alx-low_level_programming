@@ -34,4 +34,5 @@ void fibonacci(void)
 int main(void)
 {
 	fibonacci();
+	return (0);
 }
