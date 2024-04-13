@@ -13,7 +13,7 @@ void fibonacci(void)
 	for (count = 0; count < 98; count++)
 	{
 		sum = fib1 + fib2;
-		printf("%lu",fib1);
+		printf("%lu", fib1);
 
 		fib1 = fib2;
 		fib2 = sum;
