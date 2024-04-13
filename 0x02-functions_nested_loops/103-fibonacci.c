@@ -16,7 +16,7 @@ void fibonacci(void)
 		if (sum > 4000000)
 			break;
 		if (sum % 2 == 0)
-                        tot += sum;
+			tot += sum;
 		fib1 = fib2;
 		fib2 = sum;
 	}
