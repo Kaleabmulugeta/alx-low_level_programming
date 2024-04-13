@@ -23,7 +23,6 @@ void fibonacci(void)
 		else
 			printf(", ");
 	}
-	return;
 }
 
 /**
