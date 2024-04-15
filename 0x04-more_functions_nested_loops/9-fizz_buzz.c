@@ -26,7 +26,8 @@ int main(void)
 		else if (i % 5 == 0)
 		{
 			printf("Buzz");
-			putchar(' ');
+			if (i != 100)
+				putchar(' ');
 			continue;
 		}
 		else
