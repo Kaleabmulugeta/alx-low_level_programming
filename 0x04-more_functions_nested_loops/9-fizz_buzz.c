@@ -13,22 +13,26 @@ int main(void)
 	{
 		if (i % 15 == 0)
 		{
-			printf("FizzBuzz ");
+			printf("FizzBuzz");
+			putchar(' ');
 			continue;
 		}
 		else if (i % 3 == 0)
 		{
-			printf("Fizz ");
+			printf("Fizz");
+			putchar(' ');
 			continue;
 		}
 		else if (i % 5 == 0)
 		{
-			printf("Buzz ");
+			printf("Buzz");
+			putchar(' ');
 			continue;
 		}
 		else
 		{
-			printf("%i ", i);
+			printf("%i", i);
+			putchar(' ');
 		}
 	}
 	printf("\n");
