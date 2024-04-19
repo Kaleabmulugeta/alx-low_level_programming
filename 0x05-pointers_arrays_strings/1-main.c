@@ -13,7 +13,7 @@ int main(void)
 	a = 98;
 	b = 42;
 	printf("a = %i, b = %i\n", a, b);
-	swap(&a, &b);
+	swap_int(&a, &b);
 	printf("a = %i, b = %i\n", a, b);
 	return (0);
 }
