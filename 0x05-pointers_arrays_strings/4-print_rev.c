@@ -47,18 +47,17 @@ void _puts(char *str)
  */
 void print_rev(char *s)
 {
-	char tmp;
 	int leng = len(s);
 	int i, j;
-	char s2[leng];
+	char tmp[200];
 
 	j = leng - 1;
 	i = 0;
-	while (i < leng)
+	while (i < j)
 	{
-		s2[j] = s[i];
+		tmp[i] = s[j];
 		j--;
 		i++;
 	}
-	_puts(s2);
+	_puts(tmp);
 }
