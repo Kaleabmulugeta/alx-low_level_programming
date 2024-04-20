@@ -21,25 +21,6 @@ int len(char *s)
 }
 
 /**
- * _puts - A custom equivalent for the libc puts
- * @str: pointer to the str
- *
- * Return: void
- */
-void _puts(char *str)
-{
-	char tmp;
-	char nl = '\n';
-
-	while ((tmp = *str) != '\0')
-	{
-		write(1, str, 1);
-		str++;
-	}
-	write(1, &nl, 1);
-}
-
-/**
  * print_rev - prints a string in rev order
  * @s: pointer to the string
  *
@@ -48,16 +29,11 @@ void _puts(char *str)
 void print_rev(char *s)
 {
 	int leng = len(s);
-	int i, j;
-	char tmp[200];
+	int j;
 
 	j = leng - 1;
-	i = 0;
-	while (i < j)
+	while (j > 0)
 	{
-		tmp[i] = s[j];
-		j--;
-		i++;
+		_putchar(s[j]);
 	}
-	_puts(tmp);
 }
