@@ -32,8 +32,10 @@ void print_rev(char *s)
 	int j;
 
 	j = leng - 1;
-	while (j > 0)
+	while (j >= 0)
 	{
 		_putchar(s[j]);
+		j--;
 	}
+	_putchar('\n');
 }
