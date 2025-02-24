@@ -8,57 +8,52 @@
  */
 void print_times_table(int n)
 {
-	int j;
-	int i;
-	int x;
-	int ld;
-	int s;
-	int nxt;
+        if (n < 0 || n > 15)
+                return;
+        int sp = 3;
+        int inc = 0;
+        int i;
+        int j;
+        int num = 0;
+        int dig;
 
-	if (n > 15 || n < 0)
-		return;
-	for (i = 0; i < n + 1; i++)
-	{
-		for (j = 0; j < n + 1; j++)
-		{
-			x = i * j;
-			if (x < 10)
-			{
-				_putchar(x + 48);
-			}
-			else if (x < 100)
-			{
-				_putchar((int) (x / 10) + 48);
-				_putchar(x % 10 + 48);
-			}
-			else
-			{
-				ld = (int) (x / 100);
-				s = (int) (x / 10) - (ld * 10);
-				_putchar(ld + 48);
-				_putchar(s + 48);
-				_putchar((x % 10) + 48);
-			}
-			nxt = i * (j + 1);
-			if (nxt < 10 && j != n)
-			{
-				_putchar(',');
-				_putchar(' ');
-				_putchar(' ');
-				_putchar(' ');
-			}
-			else if (nxt < 100 && j != n)
-			{
-				_putchar(',');
-				_putchar(' ');
-				_putchar(' ');
-			}
-			else if (nxt < 300 && j != n)
-			{
-				_putchar(',');
-				_putchar(' ');
-			}
-		}
-		_putchar('\n');
-	}
+        for (i = 0; i <= n; i++)
+        {
+                sp = 3;
+                num = 0;
+                for (j = 0; j <= n; j++)
+                {
+                        if (num > 99)
+                        {
+                                sp = 1;
+                                _putchar((num / 100) + 48);
+                        }
+                        if (num > 9)
+                        {
+                                if (num < 99)
+                                        sp = 2;
+                                dig = (num / 10) - ((num / 100) * 10);
+                                _putchar(dig + 48);
+                        }
+                        _putchar((num % 10) + 48);
+                        if (j != n)
+                        {
+                                _putchar(',');
+                                if (sp == 3)
+                                {
+                                        _putchar(' ');
+                                        _putchar(' ');
+                                }
+                                if (sp == 2)
+				if (sp == 2)
+                                {
+                                        _putchar(' ');
+                                }
+                                _putchar(' ');
+                        }
+                        num += inc;
+                }
+                _putchar('\n');
+                inc++;
+        }
 }
