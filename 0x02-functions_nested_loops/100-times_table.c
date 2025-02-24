@@ -14,10 +14,8 @@ void print_times_table(int n)
 	int j;
 	int num = 0;
 	int dig;
-
 	if (n < 0 || n > 15)
 		return;
-
 	for (i = 0; i <= n; i++)
 	{
 		sp = 3;
@@ -26,30 +24,27 @@ void print_times_table(int n)
 		{
 			if (num > 99)
 			{
-				sp = 1;
 				_putchar((num / 100) + 48);
 			}
 			if (num > 9)
 			{
-				if (num < 99)
-					sp = 2;
 				dig = (num / 10) - ((num / 100) * 10);
 				_putchar(dig + 48);
 			}
 			_putchar((num % 10) + 48);
+
 			if (j != n)
 			{
 				_putchar(',');
-				if (sp == 3)
+
+				if ((num + inc) < 10)
 				{
 					_putchar(' ');
 					_putchar(' ');
 				}
-				if (sp == 2)
-				{
+				else if ((num + inc) < 100)
 					_putchar(' ');
-				}
-					_putchar(' ');
+				_putchar(' ');
 			}
 			num += inc;
 		}
