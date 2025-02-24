@@ -8,14 +8,15 @@
  */
 void print_times_table(int n)
 {
-        if (n < 0 || n > 15)
-                return;
-        int sp = 3;
+	int sp = 3;
         int inc = 0;
         int i;
         int j;
         int num = 0;
         int dig;
+        
+	if (n < 0 || n > 15)
+                return;
 
         for (i = 0; i <= n; i++)
         {
