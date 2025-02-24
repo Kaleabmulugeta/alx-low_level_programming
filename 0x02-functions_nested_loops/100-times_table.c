@@ -8,7 +8,6 @@
  */
 void print_times_table(int n)
 {
-	int sp = 3;
 	int inc = 0;
 	int i;
 	int j;
@@ -18,7 +17,6 @@ void print_times_table(int n)
 		return;
 	for (i = 0; i <= n; i++)
 	{
-		sp = 3;
 		num = 0;
 		for (j = 0; j <= n; j++)
 		{
