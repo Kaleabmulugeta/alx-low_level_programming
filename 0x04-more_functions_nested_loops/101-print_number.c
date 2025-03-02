@@ -18,7 +18,28 @@ int _pow(int n, int exp)
 	}
 	return (n);
 }
+/**
+ * len - Length a number
+ * @n: the number
+ *
+ * Return: The length
+ */
+int len(int n)
+{
+	unsigned int n2;
+	unsigned int len = 0;
 
+	if (n < 0)
+		n2 = n * -1;
+	else
+		n2 = n;
+	while (n2 >= 1)
+	{
+		n2 /= 10;
+		len++;
+	}
+	return (len);
+}
 /**
  * print_number - prints a number to stdout
  * @n: the number to be printed
@@ -28,8 +49,8 @@ int _pow(int n, int exp)
 void print_number(int n)
 {
 	int i;
-	int len = 0;
-	int n2;
+	int leng;
+	unsigned int n2;
 
 	if (n == 0)
 	{
@@ -38,20 +59,17 @@ void print_number(int n)
 	}
 	if (n < 0)
 	{
-		n = n * -1;
 		_putchar('-');
+		n2 = n * -1;
 	}
-	n2 = n;
-	while (n >= 1)
+	else
+		n2 = n;
+	leng = len(n);
+	for (i = 1; i <= leng; i++)
 	{
-		n /= 10;
-		len++;
-	}
-	for (i = 1; i <= len; i++)
-	{
-		if (i != len)
+		if (i != leng)
 		{
-			_putchar((int) ((n2 / _pow(10, (len - i))) % 10) + '0');
+			_putchar((int) ((n2 / _pow(10, (leng - i))) % 10) + '0');
 		}
 		else
 			_putchar((n2 % 10) + '0');
