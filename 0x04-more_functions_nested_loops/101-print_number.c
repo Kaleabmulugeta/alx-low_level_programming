@@ -1,22 +1,36 @@
 #include "main.h"
 
+/**
+ * _pow - Exponentiate a number
+ * @n: the base
+ * @exp: exponent
+ *
+ * Return: The final out put
+ */
 int _pow(int n, int exp)
 {
 	int i;
 	int n2 = n;
+
 	for (i = 1; i < exp; i++)
 	{
 		n *= n2;
 	}
-	return n;
+	return (n);
 }
 
+/**
+ * print_number - prints a number to stdout
+ * @n: the number to be printed
+ *
+ * Return: Void
+ */
 void print_number(int n)
 {
 	int i;
 	int len = 0;
 	int n2;
-	
+
 	if (n == 0)
 	{
 		_putchar('0');
