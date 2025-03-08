@@ -1,5 +1,5 @@
 /**
- * _pow- Exponentiate 
+ * _pow- Exponentiate
  * @exp: the exponent
  *
  * Return: The final output
@@ -11,7 +11,7 @@ int _pow(int exp)
 
 	for (i = 0; i < exp; i++)
 		ret *= 10;
-	return ret;
+	return (ret);
 }
 /**
  * _atoi- ASCII to int
@@ -21,13 +21,13 @@ int _pow(int exp)
  */
 int _atoi(char *s)
 {
-	int ret = 0;
+	unsigned int ret = 0;
 	int i;
 	int lenn = 0;
 	char *cp = s;
 	int sign = 1;
-	int start;
-	int stop;
+	int start = 0;
+	int stop = 0;
 	int len;
 	int mp;
 
@@ -51,7 +51,7 @@ int _atoi(char *s)
 		{
 			start = i;
 			stop = i;
-		
+
 			while ((s[i] >= '0' && s[i] <= '9') && (i < lenn))
 			{
 				stop++;
@@ -61,6 +61,8 @@ int _atoi(char *s)
 		}
 	}
 	len = stop - start;
+	if (len == 0)
+		return (0);
 	mp = _pow(len - 1);
 	for (i = start; i < stop; i++)
 	{
