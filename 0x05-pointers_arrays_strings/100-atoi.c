@@ -1,5 +1,9 @@
 /**
+<<<<<<< HEAD
  * _pow- Exponentiate 
+=======
+ * _pow- Exponentiate
+>>>>>>> 08df40e629d3dc0213857f2772e985e374d19a3c
  * @exp: the exponent
  *
  * Return: The final output
@@ -11,7 +15,11 @@ int _pow(int exp)
 
 	for (i = 0; i < exp; i++)
 		ret *= 10;
+<<<<<<< HEAD
 	return ret;
+=======
+	return (ret);
+>>>>>>> 08df40e629d3dc0213857f2772e985e374d19a3c
 }
 /**
  * _atoi- ASCII to int
@@ -21,13 +29,22 @@ int _pow(int exp)
  */
 int _atoi(char *s)
 {
+<<<<<<< HEAD
 	int ret = 0;
+=======
+	unsigned int ret = 0;
+>>>>>>> 08df40e629d3dc0213857f2772e985e374d19a3c
 	int i;
 	int lenn = 0;
 	char *cp = s;
 	int sign = 1;
+<<<<<<< HEAD
 	int start;
 	int stop;
+=======
+	int start = 0;
+	int stop = 0;
+>>>>>>> 08df40e629d3dc0213857f2772e985e374d19a3c
 	int len;
 	int mp;
 
@@ -51,7 +68,11 @@ int _atoi(char *s)
 		{
 			start = i;
 			stop = i;
+<<<<<<< HEAD
 		
+=======
+
+>>>>>>> 08df40e629d3dc0213857f2772e985e374d19a3c
 			while ((s[i] >= '0' && s[i] <= '9') && (i < lenn))
 			{
 				stop++;
@@ -61,6 +82,11 @@ int _atoi(char *s)
 		}
 	}
 	len = stop - start;
+<<<<<<< HEAD
+=======
+	if (len == 0)
+		return (0);
+>>>>>>> 08df40e629d3dc0213857f2772e985e374d19a3c
 	mp = _pow(len - 1);
 	for (i = start; i < stop; i++)
 	{
@@ -69,3 +95,7 @@ int _atoi(char *s)
 	}
 	return (sign * ret);
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 08df40e629d3dc0213857f2772e985e374d19a3c
