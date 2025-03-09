@@ -38,6 +38,27 @@ int len(char *s)
 }
 
 /**
+ * char_check- checks if a char matches specific required chars
+ * @c: The char
+ *
+ * Return: 1 if it matches; 0 if it doesn't
+ */
+int char_check(char c)
+{
+	if (c == ' ' || c == '\n' || c == '\t')
+		return (1);
+	else if (c == ',' || c == ';')
+		return (1);
+	else if (c == '.' || c == '!')
+		return (1);
+	else if (c == '?' || c == '"' || c == '(')
+		return (1);
+	else if (c == ')' || c == '{' || c == '}')
+		return (1);
+	else
+		return (0);
+}
+/**
  * cap_string- capitalize all words in a given string
  * @str: The string
  *
@@ -52,7 +73,7 @@ char *cap_string(char *str)
 		str[0] -= 32;
 	for (i = 0; i < l; i++)
 	{
-		if (str[i] == ' ' || str[i] == '\n' || str[i] == '\t' || str[i] == ',' || str[i] == ';' || str[i] == '.' || str[i] == '!' || str[i] == '?' || str[i] == '"' || str[i] == '(' || str[i] == ')' || str[i] == '{' || str[i] == '}')
+		if (char_check(str[i]))
 		{
 			if (is_char(str[i + 1]))
 			{
