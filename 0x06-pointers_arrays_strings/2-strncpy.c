@@ -1,3 +1,8 @@
+/**
+ * len- Calculate length of a char array
+ * @s: Pointer to the char array
+ * Return: Length of the char array
+ */
 int len(char *s)
 {
 	char *cp = s;
