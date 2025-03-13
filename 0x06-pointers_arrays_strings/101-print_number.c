@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * _exp- Powers of 10
@@ -38,8 +39,8 @@ void print_number(int n)
 	if (n < 0)
 	{
 		_putchar('-');
-		cp1 = -1 * n;
-		cp2 = -1 * n;
+		cp1 = (unsigned int)n * -1U;
+		cp2 = (unsigned int)n * -1U;
 	}
 	else
 	{
