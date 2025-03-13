@@ -1,15 +1,13 @@
 #include "main.h"
-#include <stdio.h>
-
 /**
  * _exp- Powers of 10
  * @n: The exponent
  *
  * Return: The output of 10 ^ n
  */
-int _exp(int n)
+unsigned int _exp(int n)
 {
-	int l = 1;
+	unsigned int l = 1;
 	int i;
 
 	for (i = 0; i < n; i++)
@@ -40,13 +38,12 @@ void print_number(int n)
 	{
 		_putchar('-');
 		cp1 = (unsigned int)n * -1U;
-		cp2 = (unsigned int)n * -1U;
 	}
 	else
 	{
 		cp1 = n;
-		cp2 = n;
 	}
+	cp2 = cp1;
 	while (cp1 != 0)
 	{
 		len++;
@@ -54,7 +51,7 @@ void print_number(int n)
 	}
 	for (i = 0; i < len; i++)
 	{
-		dig = ((int)(cp2 / _exp(len - 1 - i))) % 10;
+		dig = ((unsigned int)(cp2 / _exp(len - 1 - i))) % 10;
 		_putchar(dig + '0');
 	}
 }
