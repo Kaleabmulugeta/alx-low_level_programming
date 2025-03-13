@@ -27,7 +27,8 @@ void print_number(int n)
 	int i;
 	int dig;
 	int len = 0;
-	unsigned int cp;
+	unsigned int cp1;
+	unsigned int cp2;
 
 	if (n == 0)
 	{
@@ -37,19 +38,22 @@ void print_number(int n)
 	if (n < 0)
 	{
 		_putchar('-');
-		cp = -1 * n;
-		n *= -1;
+		cp1 = -1 * n;
+		cp2 = -1 * n;
 	}
 	else
-		cp = n;
-	while (cp != 0)
+	{
+		cp1 = n;
+		cp2 = n;
+	}
+	while (cp1 != 0)
 	{
 		len++;
-		cp /= 10;
+		cp1 /= 10;
 	}
 	for (i = 0; i < len; i++)
 	{
-		dig = ((int)(n / _exp(len - 1 - i))) % 10;
+		dig = ((int)(cp2 / _exp(len - 1 - i))) % 10;
 		_putchar(dig + '0');
 	}
 }
