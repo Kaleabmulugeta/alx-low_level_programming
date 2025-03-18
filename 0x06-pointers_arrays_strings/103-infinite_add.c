@@ -51,6 +51,20 @@ int max(int n1, int n2)
 	return (n2);
 }
 /**
+ * add_digits - Adds two digits and manages carry
+ * @d1: First digit
+ * @d2: Second digit
+ * @carry: Pointer to carry variable
+ *
+ * Return: Sum of digits (single digit)
+ */
+char add_digits(char d1, char d2, int *carry)
+{
+	int sum = (d1 - '0') + (d2 - '0') + *carry;
+	*carry = sum / 10;
+	return (sum % 10) + '0';
+}
+/**
  * infinite_add- Adds two numbers stored in strings and stores it in r
  * @n1: String containing the first number
  * @n2: String containing the second number
@@ -62,57 +76,28 @@ int max(int n1, int n2)
  */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int i;
-	int j;
-	int k = 0;
-	int l1 = len(n1);
-	int l2 = len(n2);
-	char *longer;
-	char *shorter;
-	int dig;
-	int carry = 0;
+	int i, j, k = 0, carry = 0;
+	int l1 = len(n1), l2 = len(n2);
+	char *longer, *shorter;
 
 	if (size_r <= max(l1, l2) + 1)
 		return (0);
-	if (l1 >= l2)
-	{
-		i = l1 - 1;
-		j = l2 - 1;
-		longer = n1;
-		shorter = n2;
-	}
-	else
-	{
-		i = l2 - 1;
-		j = l1 - 1;
-		longer = n2;
-		shorter = n1;
-	}
+
+	longer = (l1 >= l2) ? n1 : n2;
+	shorter = (l1 >= l2) ? n2 : n1;
+	i = len(longer) - 1;
+	j = len(shorter) - 1;
+
 	while (i >= 0)
 	{
-		if (j != -1)
-		{
-			dig = (((longer[i] + shorter[j] - 96) + carry)  % 10);
-			carry = ((longer[i] + shorter[j] - 96) + carry) / 10;
-			r[k] = dig + '0';
-		}
-		if (j == -1)
-		{
-			dig = (((longer[i] + '0' - 96) + carry)  % 10);
-			carry = ((longer[i] + '0' - 96) + carry) / 10;
-			r[k] = dig + '0';
-		}
-		if (i == 0 && carry != 0)
-		{
-			k++;
-			r[k] = carry + '0';
-		}
-		k++;
-		if (j != -1)
-			j--;
-		i--;
+		r[k++] = (j >= 0) ? add_digits(longer[i--], shorter[j--], &carry)
+						  : add_digits(longer[i--], '0', &carry);
 	}
-	r[k] = 0;
+
+	if (carry)
+		r[k++] = carry + '0';
+
+	r[k] = '\0';
 	rev_string(r);
 	return (r);
 }
