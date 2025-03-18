@@ -62,7 +62,7 @@ char add_digits(char d1, char d2, int *carry)
 {
 	int sum = (d1 - '0') + (d2 - '0') + *carry;
 	*carry = sum / 10;
-	return (sum % 10) + '0';
+	return ((sum % 10) + '0');
 }
 /**
  * infinite_add- Adds two numbers stored in strings and stores it in r
