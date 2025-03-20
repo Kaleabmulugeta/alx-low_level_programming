@@ -48,7 +48,7 @@ void print_buffer(char *b, int size)
 				idx++;
 			}
 			if (j < 10)
-				print_nsp((20 - (2 * j) + ((10 - j) / 2)));
+				print_nsp((20 - (2 * j) + ((10 - j) / 2)) + 1);
 			for (j = 0; j < 10; j++)
 			{
 				if (idx2 == size)
