@@ -25,7 +25,6 @@ void print_buffer(char *b, int size)
 {
 	int i, j;
 	int lc = 0, idx = 0, idx2 = 0;
-	char *chunk;
 
 	if (size <= 0)
 	{
