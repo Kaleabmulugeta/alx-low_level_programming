@@ -1,25 +1,68 @@
 #include <stdio.h>
+
+/**
+ * print_nsp- prints n spaces
+ * @n: The number of spaces to print
+ *
+ * Return: void
+ */
+void print_nsp(int n)
+{
+	int i;
+
+	for (i = 0; i < n; i++)
+		putchar(' ');
+}
+
+/**
+ * print_buffer- Prints the sepecified amount of bytes from a buffer
+ * @b: the buffer
+ * @size: number of bytes to print
+ *
+ * Return: Void
+ */
 void print_buffer(char *b, int size)
 {
-	int i = 0;
-	int j;
-	int line = 0;
-	int addr = 0;
-	int st = 0;
+	int i, j;
+	int lc = 0, idx = 0, idx2 = 0;
+	char *chunk;
 
 	if (size <= 0)
 	{
-		printf("\n");
+		putchar('\n');
 		return;
 	}
-	while (i <= size)
+	for (i = 0; i < size; i++)
 	{
-		printf("%08x: ", addr);
-		addr += 10;
-		for (j = st; j < 10; j++)
+		while (lc < 10)
 		{
-			printf("%x%x %x%x", b[j], b[j +1], b[j + 2], b[j + 3] );
-		
+			if (idx == size)
+				return;
+			printf("%08x: ", idx);
+			for (j = 0; j < 10; j++)
+			{
+				if (idx == size)
+					break;
+				printf("%02x", b[idx]);
+				if (j % 2)
+					putchar(' ');
+				idx++;
+			}
+			if (j < 10)
+				print_nsp(16 - j);
+			for (j = 0; j < 10; j++)
+			{
+				if (idx2 == size)
+					break;
+				if (b[idx2] >= 32 && b[idx2] <= 126)
+					putchar(b[idx2]);
+				else
+					putchar('.');
+				idx2++;
+			}
+			putchar('\n');
+			lc++;
 		}
+		lc = 0;
 	}
 }
