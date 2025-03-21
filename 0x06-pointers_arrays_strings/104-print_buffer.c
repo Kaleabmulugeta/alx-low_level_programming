@@ -13,7 +13,29 @@ void print_nsp(int n)
 	for (i = 0; i < n; i++)
 		putchar(' ');
 }
+/**
+ * print_hex- Prints chars from a buffer as hex
+ * @b: Buffer
+ * @idx: index
+ * @size: number of bytes to print
+ *
+ * Return: The last j
+ */
+int print_hex(char *b, int *idx, int size)
+{
+	int j;
 
+	for (j = 0; j < 10; j++)
+	{
+		if (*idx == size)
+			break;
+		printf("%02x", b[*idx]);
+		if (j % 2)
+			putchar(' ');
+		*idx = *idx + 1;
+	}
+	return (j);
+}
 /**
  * print_buffer- Prints the sepecified amount of bytes from a buffer
  * @b: the buffer
@@ -38,15 +60,7 @@ void print_buffer(char *b, int size)
 			if (idx == size)
 				return;
 			printf("%08x: ", idx);
-			for (j = 0; j < 10; j++)
-			{
-				if (idx == size)
-					break;
-				printf("%02x", b[idx]);
-				if (j % 2)
-					putchar(' ');
-				idx++;
-			}
+			j = print_hex(b, &idx, size);
 			if (j < 10)
 				print_nsp((20 - (2 * j) + ((10 - j) / 2)) + 1);
 			for (j = 0; j < 10; j++)
