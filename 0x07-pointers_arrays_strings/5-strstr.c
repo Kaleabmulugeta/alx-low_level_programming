@@ -1,6 +1,11 @@
 #define NULL ((void *)0)
-#include <stdio.h>
 
+/**
+ * len- calculate length of a string
+ * @b: The string
+ *
+ * Return: Length of b
+ */
 int len(char *b)
 {
 	char *cp = b;
