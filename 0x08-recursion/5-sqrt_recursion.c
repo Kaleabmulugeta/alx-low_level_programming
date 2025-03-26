@@ -7,7 +7,7 @@
  */
 int guess_sqrt(int n, int guess)
 {
-	if (guess <= 0)
+	if (guess < 0)
 		return (-1);
 	if (guess * guess == n)
 		return (guess);
