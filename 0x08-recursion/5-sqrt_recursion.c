@@ -12,9 +12,11 @@ int guess_sqrt(int n, int guess)
 	if (guess * guess == n)
 		return (guess);
 	if (guess * guess > n)
+	{
 		if ((guess - 1) * (guess - 1) < n)
 			return (-1);
 		return (guess_sqrt(n, guess - 1));
+	}
 	return (guess_sqrt(n, guess + 1));
 }
 /**
