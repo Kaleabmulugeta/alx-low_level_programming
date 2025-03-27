@@ -10,12 +10,13 @@
 int guess_sqrt(int n, int low, int high)
 {
 	int mid = low + ((high - low) / 2);
+	unsigned long sq = (unsigned long) mid * mid;
 
 	if (low > high)
 		return (-1);
-	if (mid * mid == n)
+	if (sq == (unsigned int) n)
 		return (mid);
-	if (mid * mid > n)
+	if (sq > (unsigned int) n)
 		return (guess_sqrt(n, low, mid - 1));
 	return (guess_sqrt(n, mid + 1, high));
 }
