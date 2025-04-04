@@ -1,23 +1,20 @@
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
- * len- Length of substring
- * @str: Strong
- * @idx: Index
+ * arr_free- Frees an arr allocated by a co-function below
+ * @arr: Array
+ * @i: Stop index
  *
- * Return: Length
+ * Return: void
  */
-int len(char *str, int idx)
+void arr_free(char **arr, int i)
 {
-	int i, length = 0;
+	int j;
 
-	for (i = idx; str[i] != '\0'; i++)
-	{
-		if (str[i] == ' ')
-			break;
-		length++;
-	}
-	return (length);
+	for (j = 0; j < i; j++)
+		free(arr[j]);
+	free(arr);
 }
 /**
  * find_next- Finds the index of the next non space char
@@ -70,13 +67,13 @@ int count_words(char *cp)
  */
 char **strtow(char *str)
 {
-	int words, i, j, lk, idx = 0, sub_len;
+	int words = count_words(str);
+	int i, j, idx = 0, sub_len = 0, cp;
 	char **arr;
 	char *word;
 
 	if (str == NULL || str[0] == 0)
 		return (NULL);
-	words = count_words(str);
 	arr = (char **)malloc((words + 1) * sizeof(char *));
 	if (arr == NULL)
 		return (NULL);
@@ -85,30 +82,25 @@ char **strtow(char *str)
 		idx = find_next(str, idx);
 		if (idx == -1)
 			break;
-		if (str[idx] == 0)
-			break;
-		sub_len = len(str, idx);
-		if (sub_len == 0)
+		cp = idx;
+		while (str[cp] != ' ' && str[cp] != 0)
 		{
-			i--;
-			idx++;
-			continue;
+			cp++;
+			sub_len++;
 		}
+		cp = 0;
 		word = (char *)malloc((sub_len + 1) * sizeof(char));
 		if (word == NULL)
+			arr_free(arr, i);
+		for (j = idx; j < sub_len + idx; j++)
 		{
-			for (lk = 0; lk < i; lk++)
-				free(arr[lk]);
-			free(arr);
-			return (NULL);
+			word[cp] = str[j];
+			cp++;
 		}
-		for (j = 0; j < sub_len; j++)
-		{
-			word[j] = str[idx];
-			idx++;
-		}
+		idx += sub_len;
 		word[sub_len] = 0;
 		arr[i] = word;
+		sub_len = 0;
 	}
 	arr[words] = NULL;
 	return (arr);
