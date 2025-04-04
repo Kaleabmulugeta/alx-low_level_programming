@@ -76,7 +76,7 @@ char **strtow(char *str)
 
 	if (str == NULL || str[0] == 0)
 		return (NULL);
-	words = count_words(str) + 1;
+	words = count_words(str);
 	arr = (char **)malloc((words + 1) * sizeof(char *));
 	if (arr == NULL)
 		return (NULL);
