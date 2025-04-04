@@ -1,23 +1,41 @@
 #include <stdlib.h>
 
 /**
- * len- Calculate length of a substring that might count as a word
- * @str: Pointer to parent string
- * @start: Where to start the substring
+ * len- Length of substring
+ * @str: Strong
+ * @idx: Index
  *
  * Return: Length
  */
-int len(char *str, int start)
+int len(char *str, int idx)
 {
-	int i, len = 0;
+	int i, length = 0;
 
-	for (i = start; str[i] != 0; i++)
+	for (i = idx; str[i] != '\0'; i++)
 	{
 		if (str[i] == ' ')
-			return (len);
-		len++;
+			break;
+		length++;
 	}
-	return (len);
+	return (length);
+}
+/**
+ * find_next- Finds the index of the next non space char
+ * @str: Pointer to parent string
+ * @idx: Search start position
+ *
+ * Return: Length
+ */
+int find_next(char *str, int idx)
+{
+	int i;
+
+	for (i = idx; str[i] != 0; i++)
+	{
+		if (str[i] != ' ')
+			return (i);
+	}
+	return (-1);
 }
 /**
  * count_words- Counts words in a string
@@ -27,23 +45,21 @@ int len(char *str, int start)
  */
 int count_words(char *cp)
 {
-	int words = 0, seen = 0;
+	int words = 0, in_word = 0;
 
 	while (*cp != 0)
 	{
 		if (*cp != ' ')
+			in_word = 1;
+		if (in_word && *cp == ' ')
 		{
-			seen = 1;
-			cp++;
-			continue;
-		}
-		if (seen)
-		{
-			seen = 0;
+			in_word = 0;
 			words++;
 		}
 		cp++;
 	}
+	if (in_word && *cp == 0)
+		words++;
 	return (words);
 }
 /**
@@ -54,7 +70,7 @@ int count_words(char *cp)
  */
 char **strtow(char *str)
 {
-	int words, i, j, current_length, lk, idx = 0;
+	int words, i, j, lk, idx = 0, sub_len;
 	char **arr;
 	char *word;
 
@@ -66,16 +82,19 @@ char **strtow(char *str)
 		return (NULL);
 	for (i = 0; i < words; i++)
 	{
-		current_length = len(str, idx);
+		idx = find_next(str, idx);
+		if (idx == -1)
+			break;
 		if (str[idx] == 0)
 			break;
-		if (current_length == 0)
+		sub_len = len(str, idx);
+		if (sub_len == 0)
 		{
-			idx++;
 			i--;
+			idx++;
 			continue;
 		}
-		word = (char *)malloc((current_length + 1) * sizeof(char));
+		word = (char *)malloc((sub_len + 1) * sizeof(char));
 		if (word == NULL)
 		{
 			for (lk = 0; lk < i; lk++)
@@ -83,13 +102,13 @@ char **strtow(char *str)
 			free(arr);
 			return (NULL);
 		}
-		for (j = 0; j < current_length; j++)
+		for (j = 0; j < sub_len; j++)
 		{
-			word[j] = str[idx++];
+			word[j] = str[idx];
+			idx++;
 		}
-		word[current_length] = 0;
+		word[sub_len] = 0;
 		arr[i] = word;
-		idx++;
 	}
 	arr[words] = NULL;
 	return (arr);

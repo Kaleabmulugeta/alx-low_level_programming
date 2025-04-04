@@ -16,6 +16,8 @@ void print_tab(char **tab)
     {
         printf("%s\n", tab[i]);
     }
+    if (tab[i] == NULL)
+	    printf("Found NULL\n");
 }
 
 /**
@@ -28,7 +30,8 @@ int main(void)
     char **tab;
     int i;
 
-    tab = strtow("   ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun");
+    tab = strtow("hello world");
+    
     if (tab == NULL)
     {
         printf("Failed\n");
