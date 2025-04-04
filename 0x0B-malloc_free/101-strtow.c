@@ -92,5 +92,6 @@ char **strtow(char *str)
 		arr[i] = word;
 		idx++;
 	}
+	arr[words] = NULL;
 	return (arr);
 }
