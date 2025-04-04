@@ -28,7 +28,7 @@ int main(void)
     char **tab;
     int i;
 
-    tab = strtow("      ALXSchool #cisfun");
+    tab = strtow("   ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun ALXSchool #cisfun");
     if (tab == NULL)
     {
         printf("Failed\n");
