@@ -74,6 +74,8 @@ char **strtow(char *str)
 
 	if (str == NULL || str[0] == 0)
 		return (NULL);
+	if (words == 0)
+		return (NULL);
 	arr = (char **)malloc((words + 1) * sizeof(char *));
 	if (arr == NULL)
 		return (NULL);
