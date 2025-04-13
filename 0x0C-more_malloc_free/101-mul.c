@@ -12,7 +12,11 @@ void _print(char *str)
 	int i;
 
 	for (i = 0; str[i] != 0; i++)
+	{
+		if (str[i] == '\\' || str[i] == '\n')
+			continue;
 		_putchar(str[i]);
+	}
 }
 
 /**
@@ -114,6 +118,7 @@ int main(int argc, char *argv[])
 	if (argc != 3)
 	{
 		_print("Error\n");
+		_putchar('\n');
 		exit(98);
 	}
 	res = malloc(101 * sizeof(char));
@@ -125,7 +130,8 @@ int main(int argc, char *argv[])
 	if (fp == NULL)
 		exit(98);
 	while (fgets(res, 100, fp) != NULL)
-		printf("%s", res);
+		_print(res);
+	_putchar('\n');
 	free(ar);
 	free(res);
 	free(cmd);
