@@ -1,5 +1,19 @@
+#include "main.h"
 #include <stdlib.h>
 #include <stdio.h>
+
+/**
+ * _print- Print a string
+ * @str: The string
+ * Return: void
+ */
+void _print(char *str)
+{
+	int i;
+
+	for (i = 0; str[i] != 0; i++)
+		_putchar(str[i]);
+}
 
 /**
  * len- Compute length of a string
@@ -99,14 +113,14 @@ int main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		printf("Error\n");
+		_print("Error\n");
 		exit(98);
 	}
 	res = malloc(101 * sizeof(char));
 	if (res == NULL)
 		exit(98);
 	ar = args(argv[1], argv[2]);
-	cmd = command(ar)g
+	cmd = command(ar);
 	fp = popen(cmd, "r");
 	if (fp == NULL)
 		exit(98);
