@@ -86,7 +86,11 @@ char *args(char *arg1, char *arg2)
 	for (i = 0; i < l1; i++)
 	{
 		if (arg1[i] > '9' || arg1[i] < '0')
+		{
+			_print("Error");
+			_putchar('\n');
 			exit(98);
+		}
 		ret[idx] = arg1[i];
 		idx++;
 	}
@@ -94,7 +98,11 @@ char *args(char *arg1, char *arg2)
 	for (i = 0; i < l2; i++)
 	{
 		if (arg2[i] > '9' || arg2[i] < '0')
+		{
+			_print("Error");
+			_putchar('\n');
 			exit(98);
+		}
 		ret[idx] = arg2[i];
 		idx++;
 	}
