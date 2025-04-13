@@ -41,9 +41,9 @@ void _print(char *str)
  *
  * Return: Length
  */
-int len(char *str)
+unsigned int len(char *str)
 {
-	int l = 0;
+	unsigned int l = 0;
 
 	while (*str++ != 0)
 		l++;
@@ -58,7 +58,7 @@ int len(char *str)
  */
 char *command(char *args)
 {
-	int l = len(args), idx = 0, i;
+	unsigned int l = len(args), idx = 0, i;
 	char *ret;
 	char *c1 = "echo ";
 	char *c2 = " | bc";
@@ -139,6 +139,7 @@ int main(int argc, char *argv[])
 	char *res;
 	char *ar;
 	char *cmd;
+	int stat;
 
 	if (argc != 3)
 	{
@@ -160,7 +161,9 @@ int main(int argc, char *argv[])
 		_memset(res, '\0', 100);
 	}
 	_putchar('\n');
-	pclose(fp);
+	stat = pclose(fp);
+	if (stat == -1 || WEXITSTATUS(stat) != 0)
+		exit(98);
 	free(ar);
 	free(res);
 	free(cmd);
