@@ -47,7 +47,7 @@ char *command(char *args)
 	char *c1 = "echo ";
 	char *c2 = " | bc";
 
-	ret = malloc((5 + l + 5) * sizeof(char));
+	ret = malloc((5 + l + 6) * sizeof(char));
 	if (ret == NULL)
 		exit(98);
 	for (i = 0; i < 5; i++)
@@ -65,6 +65,7 @@ char *command(char *args)
 		ret[idx] = c2[i];
 		idx++;
 	}
+	ret[idx] = 0;
 	return (ret);
 }
 
@@ -140,6 +141,7 @@ int main(int argc, char *argv[])
 	while (fgets(res, 100, fp) != NULL)
 		_print(res);
 	_putchar('\n');
+	pclose(fp);
 	free(ar);
 	free(res);
 	free(cmd);
