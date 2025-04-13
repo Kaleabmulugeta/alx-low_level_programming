@@ -139,7 +139,11 @@ int main(int argc, char *argv[])
 	if (fp == NULL)
 		exit(98);
 	while (fgets(res, 100, fp) != NULL)
+	{
 		_print(res);
+		free(res);
+		res = malloc(101 * sizeof(char));
+	}
 	_putchar('\n');
 	pclose(fp);
 	free(ar);
