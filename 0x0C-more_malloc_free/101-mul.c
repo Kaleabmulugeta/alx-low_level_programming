@@ -3,6 +3,22 @@
 #include <stdio.h>
 
 /**
+ * _memset- Sets value stored in a buffer to char b n times
+ * @s: The buffer
+ * @b: The over-writing character
+ * @n: The number of times to overwrite the buffer
+ *
+ * Return: Pointer to the buffer
+ */
+char *_memset(char *s, char b, unsigned int n)
+{
+	unsigned int i;
+
+	for (i = 0; i < n; i++)
+		s[i] = b;
+	return (s);
+}
+/**
  * _print- Print a string
  * @str: The string
  * Return: void
@@ -141,8 +157,7 @@ int main(int argc, char *argv[])
 	while (fgets(res, 100, fp) != NULL)
 	{
 		_print(res);
-		free(res);
-		res = malloc(101 * sizeof(char));
+		_memset(res, '\0', 100);
 	}
 	_putchar('\n');
 	pclose(fp);
